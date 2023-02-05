@@ -1,0 +1,26 @@
+{
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10
+  },
+  "esmodules": [
+    "module.js"
+  ],
+  "styles": [
+    "styles.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "license": "LICENSE",
+  "media": [
+    {
+      "type": "cover",
+      "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/examples-preview.png"
+    }
+  ]
+}
