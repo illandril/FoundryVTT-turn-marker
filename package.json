@@ -16,7 +16,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "preversion": "npm run validate",
-    "validate": "echo Skipping validation: run-s type-check lint test:coverage"
+    "validate": "run-s type-check lint test:coverage"
   },
   "repository": {
     "type": "git",
