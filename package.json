@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/illandril/FoundryVTT-turn-marker#readme",
   "dependencies": {
-    "@illandril/foundryvtt-utils": "^8.1.0"
+    "@illandril/foundryvtt-utils": "^8.2.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.20.11",

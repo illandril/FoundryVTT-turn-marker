@@ -29,6 +29,7 @@ export default {
     copy({
       targets: [
         { src: 'src/lang', dest: target },
+        { src: 'src/images', dest: target },
         { src: 'src/templates', dest: target },
         { src: 'LICENSE', dest: target },
       ],

@@ -1,0 +1,10 @@
+.illandril-turn-marker--marker {
+  pointer-events: none;
+  position: absolute;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}

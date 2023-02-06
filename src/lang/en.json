@@ -1,10 +1,31 @@
 {
   "illandril-turn-marker": {
+    "notification": {
+      "offTurnMovementBlocked": {
+        "GM": "{token} cannot move - it is not their turn. Press \"{hotkey}\" while moving to move anyway.",
+        "player": "{token} cannot move - it is not their turn."
+      }
+    },
     "setting": {
       "debug": {
         "label": "Debug Mode",
         "hint": "Leave this disabled unless specifically asked to enable it by Illandril (otherwise, it will slow things down)."
+      },
+      "blockGMOffTurnMovement": {
+        "label": "Block GM Off-Turn Movement",
+        "hint": "Prevent GMs from moving tokens while a combat encounter is active unless it is the token's turn. GMs can temporarily override this setting by pressing the Allow Off-Turn Movement key (defaults to M, configurable in Controls)."
+      },
+      "blockPlayerOffTurnMovement": {
+        "label": "Block Player Off-Turn Movement",
+        "hint": "Prevent Players from moving tokens while a combat encounter is active unless it is the token's turn."
       }
-    }
+    },
+    "hotkey": {
+      "allowMovement": {
+        "label": "Allow Off-Turn Movement",
+        "hint": "When pressed, a GM will be allowed to move a token when it is not that token's turn even if Block GM Off-Turn Movement is enabled."
+      }
+    },
+    "turnStartedMessage": "-= {token}'s Turn =-"
   }
 }
