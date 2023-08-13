@@ -1,6 +1,6 @@
 {
   "name": "@illandril/foundryvtt-turn-marker",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Illandril's Turn Marker: Adds an image over tokens when they are the active combatant in the combat tracker.",
   "type": "module",
   "scripts": {
