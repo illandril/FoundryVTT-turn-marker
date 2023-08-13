@@ -29,9 +29,14 @@ export default class Marker {
     this.marker.parentElement?.removeChild(this.marker);
   }
 
-  update(position: { x: number, y: number, width: number, height: number, rotation?: number }) {
+  update(position?: { x: number, y: number, width: number, height: number, rotation?: number }) {
     if (!showMarker(this.setting)) {
       module.logger.debug('Not showing marker - configured as hidden for this user', this.type, this.setting.get());
+      this.hide();
+      return;
+    }
+    if (!position) {
+      module.logger.debug('Not showing marker - position could not be determined', this.type);
       this.hide();
       return;
     }

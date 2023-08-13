@@ -6,15 +6,15 @@ const EnableTurnAnnouncer = module.settings.register('enableTurnAnnouncer', Bool
 });
 
 registerListener((combat, changedByCurrentUser) => {
-  if (changedByCurrentUser && EnableTurnAnnouncer.get()) {
+  if (changedByCurrentUser && EnableTurnAnnouncer.get() && combat.combatant) {
     ChatMessage.create({
       speaker: {
         alias: module.localize('turnStartedMessage', {
-          token: (combat.combatant.hidden ? null : combat.combatant.token.name) || module.localize('unknownTurnAlias'),
+          name: (combat.combatant.hidden ? undefined : combat.combatant.name) || module.localize('unknownTurnAlias'),
         }),
-        actor: combat.combatant.hidden ? undefined : combat.combatant.actor,
-        token: combat.combatant.hidden ? undefined : combat.combatant.token,
-        scene: combat.scene,
+        actor: combat.combatant.hidden ? undefined : combat.combatant.actor || undefined,
+        token: combat.combatant.hidden ? undefined : combat.combatant.token || undefined,
+        scene: combat.scene || undefined,
       },
     });
   }

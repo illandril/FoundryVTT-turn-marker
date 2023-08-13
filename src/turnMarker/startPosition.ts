@@ -19,10 +19,12 @@ export const getStartPosition = (combat: Combat) => {
 };
 
 export const setStartPosition = (combat: Combat) => {
-  if (combat.started && combat.combatant) {
+  const position = combat.started ? getCombatantPosition(combat.combatant) : null;
+  if (position) {
     const startPosition: StartPosition = {
-      combatant: combat.combatant.id,
-      ...getCombatantPosition(combat.combatant),
+      // combatant must be defined ,because we got a position
+      combatant: combat.combatant!.id,
+      ...position,
     };
     combat.setFlag(module.id, START_POSITION_KEY, startPosition);
   } else {

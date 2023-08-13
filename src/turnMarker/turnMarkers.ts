@@ -21,6 +21,11 @@ const _refreshMarkers = () => {
     clearMarkers();
     return;
   }
+  if (!game.combat.combatant) {
+    module.logger.debug('No combatant');
+    clearMarkers();
+    return;
+  }
 
   if (!isTokenVisible(game.combat.combatant.token)) {
     module.logger.debug('Combatant not visible');

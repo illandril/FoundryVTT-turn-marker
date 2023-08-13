@@ -50,7 +50,7 @@
         "hint": "When pressed, a GM will be allowed to move a token when it is not that token's turn even if Block GM Off-Turn Movement is enabled."
       }
     },
-    "turnStartedMessage": "-= {token}'s Turn =-",
+    "turnStartedMessage": "-= {name}'s Turn =-",
     "unknownTurnAlias": "???"
   }
 }
