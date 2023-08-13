@@ -32,16 +32,16 @@
         }
       },
       "enableCurrentTurnMarker": {
-        "label": "Current Turn Marker (Bright Green Circle)",
-        "hint": "Places a marker on tokens during their turn."
+        "label": "Current Turn Marker",
+        "hint": "Show a Bright Green Circle Places image over tokens during their turn (follows the token as they move)."
       },
       "enableTurnStartMarker": {
-        "label": "Turn Start Marker (Dark Red Circle)",
-        "hint": "Places a marker at the token's location when their turn starts."
+        "label": "Turn Start Marker",
+        "hint": "Show a Dark Red Circle image over the location the current combatant token started their turn."
       },
       "enableMovementMarkers": {
-        "label": "Movement Markers (Footsteps)",
-        "hint": "Places a marker on every square a token lands on during their turn. Note: These markers do not persist through refreshes."
+        "label": "Movement Markers",
+        "hint": "Show a Footstep image and move counter over every square a token lands on during their turn. Note: These markers do not persist through refreshes."
       }
     },
     "hotkey": {
