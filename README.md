@@ -8,7 +8,7 @@ This is a module for Foundry Virtual Tabletop that provides some QoL features fo
   - Showing a marker on tokens when it is their turn
   - Showing a marker on the location where a token started their turn
   - Showing a marker on the location(s) where a token moved during their turn
-- Annoucing the name of the token when the turn changes
+- Announcing the name of the token when the turn changes
 - Preventing players and/or GMs from moving tokens (including changes to elevation or rotation) when it isn't that token's turn
   - If this is enabled, GMs can override this by pressing a hotkey while they move the token (defaults to M)
 
