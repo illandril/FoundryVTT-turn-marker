@@ -19,3 +19,7 @@ This is a module for Foundry Virtual Tabletop that provides some QoL features fo
 All features can be enabled or disabled. Each marker type can be separately enabled or disabled based on user roles (GM vs Player).
 
 Marker images are not (currently) configurable, but I may consider changing this if there is enough demand, so feel free to open a GitHub Issue for the module to request a different image.
+
+---
+
+Does this module not quite meet your combat needs? Consider [Combat Booster](https://foundryvtt.com/packages/combatbooster). Note: I am not affiliated with, and have not ever even used this module - I just know some other former "TurnMarker-alt" switched to this module.
