@@ -3,6 +3,7 @@ import module from './module';
 const WARN_DELAY = 3000;
 
 let allowMovement = false;
+
 Hooks.once('init', () => {
   game.keybindings.register(module.id, 'allowMovement', {
     name: module.localize('hotkey.allowMovement.label'),
@@ -25,9 +26,12 @@ Hooks.once('init', () => {
 });
 
 const getMovementHotkeyName = () => {
-  const primaryKeyBinding = game.keybindings.get('illandril-turn-marker', 'allowMovement')[0];
+  const primaryKeyBinding = game.keybindings.get(module.id, 'allowMovement')?.[0];
+  if (!primaryKeyBinding) {
+    return null;
+  }
   return [
-    ...primaryKeyBinding.modifiers,
+    ...primaryKeyBinding.modifiers ?? [],
     KeyboardManager.getKeycodeDisplayString(primaryKeyBinding.key),
   ].join(' + ');
 };
@@ -41,12 +45,15 @@ const BlockGMOffTurnMovement = module.settings.register('blockGMOffTurnMovement'
 
 let lastWarnedToken: TokenDocument | null = null;
 let lastWarnedTime = 0;
-Hooks.on('preUpdateToken', (token: TokenDocument, changes) => {
-  const combat = game.combat as Combat | undefined;
+
+const movementFields = ['x', 'y', 'elevation', 'rotation'] as const;
+
+Hooks.on('preUpdateToken', (token, changes) => {
+  const combat = game.combat;
   if (!combat?.started || combat.combatant?.token === token) {
     return;
   }
-  const hasMovement = changes.x !== undefined || changes.y !== undefined || changes.elevation !== undefined;
+  const hasMovement = movementFields.some((field) => changes[field] !== undefined);
   if (!hasMovement) {
     return;
   }
@@ -56,21 +63,25 @@ Hooks.on('preUpdateToken', (token: TokenDocument, changes) => {
   const blockMovement = isGM
     ? BlockGMOffTurnMovement.get() && !allowMovement
     : BlockPlayerOffTurnMovement.get();
+
   if (blockMovement) {
     module.logger.debug('Blocking movement');
-    if (lastWarnedToken !== token || Date.now() - lastWarnedTime > WARN_DELAY) {
+    if (lastWarnedToken !== token || Date.now() - lastWarnedTime >= WARN_DELAY) {
       lastWarnedToken = token;
       lastWarnedTime = Date.now();
-      ui.notifications.warn(module.localize(`notification.offTurnMovementBlocked.${isGM ? 'GM' : 'player'}`, {
+      const movementHotkey = isGM ? getMovementHotkeyName() : null;
+      ui.notifications.warn(module.localize(`notification.offTurnMovementBlocked.${movementHotkey ? 'GM' : 'player'}`, {
         token: token.name,
-        hotkey: isGM ? getMovementHotkeyName() : undefined,
+        ...movementHotkey ? { hotkey: movementHotkey } : {},
       }));
     }
-    delete changes.x;
-    delete changes.y;
+    for (const field of movementFields) {
+      delete changes[field];
+    }
     module.logger.debug('Remaining changes', changes);
     if (Object.keys(changes).length === 1) {
       // If there are no other changes - prevent the change
+      // eslint-disable-next-line consistent-return
       return false;
     }
   }

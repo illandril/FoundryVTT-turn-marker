@@ -183,11 +183,13 @@ export default {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  // transform: {
+  //   '^.+\\.[tj]s$': ['ts-jest', { tsconfig: 'tsconfig.tests.json' }],
+  // },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    '/node_modules/(?!@illandril).+\\.js$',
+    '/node_modules/(?!@illandril).+\\.[tj]s$',
   ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

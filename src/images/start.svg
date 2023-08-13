@@ -11,6 +11,16 @@
        a30,30,0,0,0,60,0
        a30,30,0,0,0,-60,0
        "
+    stroke="#fff"
+    stroke-width="12"
+    fill="none"
+    opacity="0.5"
+  />
+  <path
+    d="M20,50
+       a30,30,0,0,0,60,0
+       a30,30,0,0,0,-60,0
+       "
     stroke="#000"
     stroke-width="10"
     fill="none"
@@ -20,8 +30,8 @@
        a30,30,0,0,0,60,0
        a30,30,0,0,0,-60,0
        "
-    stroke="#f00"
-    stroke-width="5"
+    stroke="#c00"
+    stroke-width="6"
     stroke-dasharray="5 2 2 2"
     fill="none"
   />

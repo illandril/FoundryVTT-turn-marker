@@ -1,5 +1,5 @@
+import module from '../module';
 import getCombatantPosition from './getCombatantPosition';
-import module from './module';
 
 const START_POSITION_KEY = 'startPosition';
 

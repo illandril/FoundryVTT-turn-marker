@@ -1,0 +1,26 @@
+.illandril-turn-marker--marker {
+  pointer-events: none;
+  position: absolute;
+  display: grid;
+  grid-template-areas: 'a';
+  align-items: center;
+  justify-items: center;
+
+  > img {
+    grid-area: a;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.illandril-turn-marker--marker-counter {
+  grid-area: a;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0.75;
+  background: #0009;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.5rem;
+}

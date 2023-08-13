@@ -1,7 +1,7 @@
 {
   "compatibility": {
-    "minimum": 10,
-    "verified": 10
+    "minimum": 11,
+    "verified": 11
   },
   "esmodules": [
     "module.js"
@@ -20,7 +20,11 @@
   "media": [
     {
       "type": "cover",
-      "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/examples-preview.png"
+      "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/cover.png"
+    },
+    {
+      "type": "screenshot",
+      "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/example-announcer.png"
     }
   ]
 }

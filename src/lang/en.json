@@ -18,6 +18,30 @@
       "blockPlayerOffTurnMovement": {
         "label": "Block Player Off-Turn Movement",
         "hint": "Prevent Players from moving tokens while a combat encounter is active unless it is the token's turn."
+      },
+      "enableTurnAnnouncer": {
+        "label": "Enable Turn Announcer",
+        "hint": "Announces the start of a token's turn during combat. Note: Turns of characters hidden from combat (visibility is toggled in the Combat Encounter) are still announced, but their name is hidden."
+      },
+      "visibility": {
+        "choice": {
+          "ALL": "Show to Everyone",
+          "GMS": "Show to GMs Only",
+          "PLAYERS": "Show to Players Only",
+          "NONE": "Hide from Everyone"
+        }
+      },
+      "enableCurrentTurnMarker": {
+        "label": "Current Turn Marker (Bright Green Circle)",
+        "hint": "Places a marker on tokens during their turn."
+      },
+      "enableTurnStartMarker": {
+        "label": "Turn Start Marker (Dark Red Circle)",
+        "hint": "Places a marker at the token's location when their turn starts."
+      },
+      "enableMovementMarkers": {
+        "label": "Movement Markers (Footsteps)",
+        "hint": "Places a marker on every square a token lands on during their turn. Note: These markers do not persist through refreshes."
       }
     },
     "hotkey": {
@@ -26,6 +50,7 @@
         "hint": "When pressed, a GM will be allowed to move a token when it is not that token's turn even if Block GM Off-Turn Movement is enabled."
       }
     },
-    "turnStartedMessage": "-= {token}'s Turn =-"
+    "turnStartedMessage": "-= {token}'s Turn =-",
+    "unknownTurnAlias": "???"
   }
 }

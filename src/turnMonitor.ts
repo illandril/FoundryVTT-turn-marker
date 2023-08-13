@@ -3,7 +3,7 @@ import module from './module';
 type TurnChangeCallback = (combat: Combat, changedByCurrentUser: boolean) => void;
 const callbacks: TurnChangeCallback[] = [];
 
-Hooks.on('updateCombat', async (combat: Combat, update, _options, userId) => {
+Hooks.on('updateCombat', (combat, update, _options, userId) => {
   const changedByCurrentUser = game.user?.id === userId;
   module.logger.debug('updateCombat', combat, update, userId, changedByCurrentUser);
   if (update.turn === undefined && update.round === undefined) {
