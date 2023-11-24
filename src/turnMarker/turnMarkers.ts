@@ -141,10 +141,10 @@ Hooks.on('updateCombat', () => {
   refreshMarkers();
 });
 
-registerListener((combat, changedByCurrentUser) => {
-  if (changedByCurrentUser) {
+registerListener((combat) => {
+  clearFootsteps();
+  if (game.user?.isGM) {
     setStartPosition(combat);
-    clearFootsteps();
   }
 });
 
