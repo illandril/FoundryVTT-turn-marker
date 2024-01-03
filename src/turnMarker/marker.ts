@@ -3,6 +3,7 @@ import './marker.scss';
 import { Setting, showMarker } from './markerVisibilityOptions';
 
 const markerCSS = module.cssPrefix.child('marker');
+const markerWrapperCSS = module.cssPrefix.child('marker-wrapper');
 const markerCounterCSS = module.cssPrefix.child('marker-counter');
 export default class Marker {
   private marker: HTMLDivElement;
@@ -46,11 +47,17 @@ export default class Marker {
       module.logger.error('Cannot update marker - no hud element found');
       return;
     }
+    let wrapper = hud.querySelector(`.${markerWrapperCSS}`);
+    if (!wrapper) {
+      wrapper = document.createElement('div');
+      wrapper.classList.add(markerWrapperCSS);
+      hud.appendChild(wrapper);
+    }
 
     this.marker.style.left = `${position.x}px`;
     this.marker.style.top = `${position.y}px`;
     this.marker.style.width = `${position.width}px`;
     this.marker.style.height = `${position.height}px`;
-    hud.appendChild(this.marker);
+    wrapper.appendChild(this.marker);
   }
 }
