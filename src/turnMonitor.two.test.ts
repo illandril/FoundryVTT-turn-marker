@@ -25,10 +25,10 @@ it('should call both listeners when the current user changes the combat turn', (
     turn: 3,
   }, {}, 'mock-user-id');
 
-  expect(listenerA).toBeCalledTimes(1);
-  expect(listenerB).toBeCalledTimes(1);
-  expect(listenerA).toBeCalledWith(combat, true);
-  expect(listenerB).toBeCalledWith(combat, true);
+  expect(listenerA).toHaveBeenCalledTimes(1);
+  expect(listenerB).toHaveBeenCalledTimes(1);
+  expect(listenerA).toHaveBeenCalledWith(combat, true);
+  expect(listenerB).toHaveBeenCalledWith(combat, true);
 });
 
 it('should call both listeners when a different user changes the combat turn', () => {
@@ -48,10 +48,10 @@ it('should call both listeners when a different user changes the combat turn', (
     turn: 3,
   }, {}, 'mock-other-user-id');
 
-  expect(listenerA).toBeCalledTimes(1);
-  expect(listenerB).toBeCalledTimes(1);
-  expect(listenerA).toBeCalledWith(combat, false);
-  expect(listenerB).toBeCalledWith(combat, false);
+  expect(listenerA).toHaveBeenCalledTimes(1);
+  expect(listenerB).toHaveBeenCalledTimes(1);
+  expect(listenerA).toHaveBeenCalledWith(combat, false);
+  expect(listenerB).toHaveBeenCalledWith(combat, false);
 });
 
 it('should call both listeners when the current user changes the combat round', () => {
@@ -71,10 +71,10 @@ it('should call both listeners when the current user changes the combat round', 
     round: 5,
   }, {}, 'mock-user-id');
 
-  expect(listenerA).toBeCalledTimes(1);
-  expect(listenerB).toBeCalledTimes(1);
-  expect(listenerA).toBeCalledWith(combat, true);
-  expect(listenerB).toBeCalledWith(combat, true);
+  expect(listenerA).toHaveBeenCalledTimes(1);
+  expect(listenerB).toHaveBeenCalledTimes(1);
+  expect(listenerA).toHaveBeenCalledWith(combat, true);
+  expect(listenerB).toHaveBeenCalledWith(combat, true);
 });
 
 describe('failure tests', () => {
@@ -108,13 +108,13 @@ describe('failure tests', () => {
       round: 5,
     }, {}, 'mock-user-id');
 
-    expect(listenerA).toBeCalledTimes(1);
-    expect(listenerB).toBeCalledTimes(1);
-    expect(listenerA).toBeCalledWith(combat, true);
-    expect(listenerB).toBeCalledWith(combat, true);
+    expect(listenerA).toHaveBeenCalledTimes(1);
+    expect(listenerB).toHaveBeenCalledTimes(1);
+    expect(listenerA).toHaveBeenCalledWith(combat, true);
+    expect(listenerB).toHaveBeenCalledWith(combat, true);
 
-    expect(errorSpy).toBeCalledTimes(1);
-    expect(errorSpy).toBeCalledWith('Error in turnChangeCallback', error);
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(errorSpy).toHaveBeenCalledWith('Error in turnChangeCallback', error);
   });
 
   it('should still call all listeners if B fails', () => {
@@ -139,13 +139,13 @@ describe('failure tests', () => {
       round: 5,
     }, {}, 'mock-user-id');
 
-    expect(listenerA).toBeCalledTimes(1);
-    expect(listenerB).toBeCalledTimes(1);
-    expect(listenerA).toBeCalledWith(combat, true);
-    expect(listenerB).toBeCalledWith(combat, true);
+    expect(listenerA).toHaveBeenCalledTimes(1);
+    expect(listenerB).toHaveBeenCalledTimes(1);
+    expect(listenerA).toHaveBeenCalledWith(combat, true);
+    expect(listenerB).toHaveBeenCalledWith(combat, true);
 
-    expect(errorSpy).toBeCalledTimes(1);
-    expect(errorSpy).toBeCalledWith('Error in turnChangeCallback', error);
+    expect(errorSpy).toHaveBeenCalledTimes(1);
+    expect(errorSpy).toHaveBeenCalledWith('Error in turnChangeCallback', error);
   });
 });
 
@@ -167,10 +167,10 @@ it('should call both listeners when a different user changes the combat round', 
     round: 5,
   }, {}, 'mock-other-user-id');
 
-  expect(listenerA).toBeCalledTimes(1);
-  expect(listenerB).toBeCalledTimes(1);
-  expect(listenerA).toBeCalledWith(combat, false);
-  expect(listenerB).toBeCalledWith(combat, false);
+  expect(listenerA).toHaveBeenCalledTimes(1);
+  expect(listenerB).toHaveBeenCalledTimes(1);
+  expect(listenerA).toHaveBeenCalledWith(combat, false);
+  expect(listenerB).toHaveBeenCalledWith(combat, false);
 });
 
 it('should not call either listeners when the current user changes something else about the combat', () => {
@@ -190,8 +190,8 @@ it('should not call either listeners when the current user changes something els
     active: true,
   }, {}, 'mock-user-id');
 
-  expect(listenerA).not.toBeCalled();
-  expect(listenerB).not.toBeCalled();
+  expect(listenerA).not.toHaveBeenCalled();
+  expect(listenerB).not.toHaveBeenCalled();
 });
 
 it('should not call either listeners when the current user changes something else about the combat', () => {
@@ -211,6 +211,6 @@ it('should not call either listeners when the current user changes something els
     active: true,
   }, {}, 'mock-other-user-id');
 
-  expect(listenerA).not.toBeCalled();
-  expect(listenerB).not.toBeCalled();
+  expect(listenerA).not.toHaveBeenCalled();
+  expect(listenerB).not.toHaveBeenCalled();
 });

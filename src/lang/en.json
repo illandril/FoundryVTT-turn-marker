@@ -19,6 +19,14 @@
         "label": "Block Player Off-Turn Movement",
         "hint": "Prevent Players from moving tokens while a combat encounter is active unless it is the token's turn."
       },
+      "allowSameInitiativeMovement": {
+        "label": "Allow Same Initiative Movement",
+        "hint": "If enabled, tokens are allowed to move if either it is their turn or they share the same initiative value with the token whose turn it is."
+      },
+      "allowNonCombatantMovement": {
+        "label": "Allow Non-Combatant Movement",
+        "hint": "If enabled, tokens that are not involved in the combat are allowed to move at any time while an encounter is ongoing."
+      },
       "enableTurnAnnouncer": {
         "label": "Enable Turn Announcer",
         "hint": "Announces the start of a token's turn during combat. Note: Turns of characters hidden from combat (visibility is toggled in the Combat Encounter) are still announced, but their name is hidden."

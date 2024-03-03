@@ -32,20 +32,20 @@
   },
   "homepage": "https://github.com/illandril/FoundryVTT-turn-marker#readme",
   "dependencies": {
-    "@illandril/foundryvtt-utils": "^9.0.5"
+    "@illandril/foundryvtt-utils": "^9.3.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.23.3",
-    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-env": "^7.24.0",
     "@babel/preset-typescript": "^7.23.3",
-    "@illandril/eslint-config-foundryvtt": "^1.8.7",
-    "@illandril/foundryvtt-types": "^6.6.0",
+    "@illandril/eslint-config-foundryvtt": "^1.9.0",
+    "@illandril/foundryvtt-types": "^6.17.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@testing-library/dom": "^9.3.3",
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/dom": "^9.3.4",
+    "@testing-library/jest-dom": "^6.4.2",
     "@types/chance": "^1.1.6",
-    "@types/jest": "^29.5.10",
+    "@types/jest": "^29.5.12",
     "babel-jest": "^29.7.0",
     "babel-preset-minify": "^0.5.2",
     "chance": "^1.1.11",
@@ -54,12 +54,12 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-fail-on-console": "^3.1.2",
     "jquery": "^3.7.1",
-    "npm-run-all2": "^6.1.1",
+    "npm-run-all2": "^6.1.2",
     "rimraf": "^5.0.5",
-    "rollup": "^4.5.1",
+    "rollup": "^4.12.0",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-scss": "^4.0.0",
-    "sass": "^1.69.5",
-    "typescript": "^5.3.2"
+    "sass": "^1.71.1",
+    "typescript": "^5.3.3"
   }
 }

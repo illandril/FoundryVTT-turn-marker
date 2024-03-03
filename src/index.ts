@@ -1,3 +1,3 @@
-import './blockOffTurnMovement';
+import './blockOffTurnMovement/blockOffTurnMovement';
 import './turnAnnouncer';
 import './turnMarker/turnMarkers';

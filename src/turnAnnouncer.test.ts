@@ -48,7 +48,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledTimes(1);
+    expect(createChatMessageSpy).toHaveBeenCalledTimes(1);
   });
 
   it.each(['Abbie Normal', 'Bob Otherson', 'Chuck'])('should use the correct alias for the chat message (combatant.name=%j)', (name) => {
@@ -64,7 +64,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         alias: `mock-format[illandril-turn-marker.turnStartedMessage][{"name":"${name}"}]`,
       }) as SpeakerType,
@@ -79,7 +79,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         alias: 'mock-format[illandril-turn-marker.turnStartedMessage][{"name":"mock-localize[illandril-turn-marker.unknownTurnAlias]"}]',
       }) as SpeakerType,
@@ -94,7 +94,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         alias: 'mock-format[illandril-turn-marker.turnStartedMessage][{"name":"mock-localize[illandril-turn-marker.unknownTurnAlias]"}]',
       }) as SpeakerType,
@@ -109,7 +109,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         actor,
       }) as SpeakerType,
@@ -124,7 +124,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         scene,
       }) as SpeakerType,
@@ -139,7 +139,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledWith({
+    expect(createChatMessageSpy).toHaveBeenCalledWith({
       speaker: expect.objectContaining({
         token,
       }) as SpeakerType,
@@ -154,7 +154,7 @@ describe('with turn announcer enabled', () => {
       round: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).toBeCalledTimes(1);
+    expect(createChatMessageSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should not create a chat message when a different user changes the combat turn', () => {
@@ -165,7 +165,7 @@ describe('with turn announcer enabled', () => {
       turn: 3,
     }, {}, 'mock-other-user-id');
 
-    expect(createChatMessageSpy).not.toBeCalled();
+    expect(createChatMessageSpy).not.toHaveBeenCalled();
   });
 
   it('should not create a chat message when the current user changes some other combat setting', () => {
@@ -176,7 +176,7 @@ describe('with turn announcer enabled', () => {
       active: true,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).not.toBeCalled();
+    expect(createChatMessageSpy).not.toHaveBeenCalled();
   });
 });
 
@@ -193,7 +193,7 @@ describe('with turn announcer disabled', () => {
       turn: 3,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).not.toBeCalled();
+    expect(createChatMessageSpy).not.toHaveBeenCalled();
   });
 
   it('should not create a chat message when the current user changes the combat round', () => {
@@ -204,6 +204,6 @@ describe('with turn announcer disabled', () => {
       round: 5,
     }, {}, 'mock-user-id');
 
-    expect(createChatMessageSpy).not.toBeCalled();
+    expect(createChatMessageSpy).not.toHaveBeenCalled();
   });
 });
