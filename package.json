@@ -1,6 +1,6 @@
 {
   "name": "@illandril/foundryvtt-turn-marker",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Illandril's Turn Marker: Adds images over tokens when they are the active combatant in the combat tracker to mark who the active combatant is and where the combatant started their turn. All markers can be optionally disabled based on user role, and additional settings related to combat turn management are also available.",
   "type": "module",
   "scripts": {
