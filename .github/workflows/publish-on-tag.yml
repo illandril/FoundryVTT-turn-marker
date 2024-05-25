@@ -11,9 +11,12 @@ on:
   push:
     tags:
       - "v*.*.*"
+  workflow_dispatch:
 
 jobs:
   publish-on-tag:
+    permissions:
+      contents: write
     uses: illandril/FoundryVTT-package-release-action/.github/workflows/illandril-publish.yml@main
     secrets:
       PACKAGE_RELEASE_TOKEN: ${{ secrets.PACKAGE_RELEASE_TOKEN }}
