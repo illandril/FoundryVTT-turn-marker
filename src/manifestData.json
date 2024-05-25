@@ -15,6 +15,10 @@
   "license": "LICENSE",
   "media": [
     {
+      "type": "setup",
+      "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/setup.png"
+    },
+    {
       "type": "cover",
       "url": "https://github.com/illandril/FoundryVTT-turn-marker/raw/main/screenshots/cover.png"
     },
