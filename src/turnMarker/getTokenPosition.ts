@@ -1,6 +1,4 @@
-const getTokenPosition = (
-  token?: TokenDocument | null,
-) => {
+const getTokenPosition = (token?: TokenDocument | null) => {
   const bounds = token?.object?.bounds;
   if (bounds) {
     return {

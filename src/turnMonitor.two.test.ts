@@ -21,9 +21,15 @@ it('should call both listeners when the current user changes the combat turn', (
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    turn: 3,
-  }, {}, 'mock-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      turn: 3,
+    },
+    {},
+    'mock-user-id',
+  );
 
   expect(listenerA).toHaveBeenCalledTimes(1);
   expect(listenerB).toHaveBeenCalledTimes(1);
@@ -44,9 +50,15 @@ it('should call both listeners when a different user changes the combat turn', (
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    turn: 3,
-  }, {}, 'mock-other-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      turn: 3,
+    },
+    {},
+    'mock-other-user-id',
+  );
 
   expect(listenerA).toHaveBeenCalledTimes(1);
   expect(listenerB).toHaveBeenCalledTimes(1);
@@ -67,9 +79,15 @@ it('should call both listeners when the current user changes the combat round', 
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    round: 5,
-  }, {}, 'mock-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      round: 5,
+    },
+    {},
+    'mock-user-id',
+  );
 
   expect(listenerA).toHaveBeenCalledTimes(1);
   expect(listenerB).toHaveBeenCalledTimes(1);
@@ -104,9 +122,15 @@ describe('failure tests', () => {
       scene: { id: 'mock-scene-id' } as Scene,
     } as Combat;
 
-    Hooks.callAll('updateCombat', combat, {
-      round: 5,
-    }, {}, 'mock-user-id');
+    Hooks.callAll(
+      'updateCombat',
+      combat,
+      {
+        round: 5,
+      },
+      {},
+      'mock-user-id',
+    );
 
     expect(listenerA).toHaveBeenCalledTimes(1);
     expect(listenerB).toHaveBeenCalledTimes(1);
@@ -135,9 +159,15 @@ describe('failure tests', () => {
       scene: { id: 'mock-scene-id' } as Scene,
     } as Combat;
 
-    Hooks.callAll('updateCombat', combat, {
-      round: 5,
-    }, {}, 'mock-user-id');
+    Hooks.callAll(
+      'updateCombat',
+      combat,
+      {
+        round: 5,
+      },
+      {},
+      'mock-user-id',
+    );
 
     expect(listenerA).toHaveBeenCalledTimes(1);
     expect(listenerB).toHaveBeenCalledTimes(1);
@@ -148,7 +178,6 @@ describe('failure tests', () => {
     expect(errorSpy).toHaveBeenCalledWith('Error in turnChangeCallback', error);
   });
 });
-
 
 it('should call both listeners when a different user changes the combat round', () => {
   const combat = {
@@ -163,9 +192,15 @@ it('should call both listeners when a different user changes the combat round', 
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    round: 5,
-  }, {}, 'mock-other-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      round: 5,
+    },
+    {},
+    'mock-other-user-id',
+  );
 
   expect(listenerA).toHaveBeenCalledTimes(1);
   expect(listenerB).toHaveBeenCalledTimes(1);
@@ -186,9 +221,15 @@ it('should not call either listeners when the current user changes something els
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    active: true,
-  }, {}, 'mock-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      active: true,
+    },
+    {},
+    'mock-user-id',
+  );
 
   expect(listenerA).not.toHaveBeenCalled();
   expect(listenerB).not.toHaveBeenCalled();
@@ -207,9 +248,15 @@ it('should not call either listeners when the current user changes something els
     scene: { id: 'mock-scene-id' } as Scene,
   } as Combat;
 
-  Hooks.callAll('updateCombat', combat, {
-    active: true,
-  }, {}, 'mock-other-user-id');
+  Hooks.callAll(
+    'updateCombat',
+    combat,
+    {
+      active: true,
+    },
+    {},
+    'mock-other-user-id',
+  );
 
   expect(listenerA).not.toHaveBeenCalled();
   expect(listenerB).not.toHaveBeenCalled();

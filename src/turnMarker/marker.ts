@@ -1,6 +1,6 @@
 import module from '../module';
 import './marker.scss';
-import { Setting, showMarker } from './markerVisibilityOptions';
+import { type Setting, showMarker } from './markerVisibilityOptions';
 
 const markerCSS = module.cssPrefix.child('marker');
 const markerWrapperCSS = module.cssPrefix.child('marker-wrapper');
@@ -8,7 +8,11 @@ const markerCounterCSS = module.cssPrefix.child('marker-counter');
 export default class Marker {
   private marker: HTMLDivElement;
 
-  constructor(private setting: Setting, private type: 'start' | 'active' | 'footsteps', counter?: number) {
+  constructor(
+    private setting: Setting,
+    private type: 'start' | 'active' | 'footsteps',
+    counter?: number,
+  ) {
     const marker = document.createElement('div');
     marker.classList.add(markerCSS);
 
@@ -30,7 +34,7 @@ export default class Marker {
     this.marker.parentElement?.removeChild(this.marker);
   }
 
-  update(position?: { x: number, y: number, width: number, height: number, rotation?: number }) {
+  update(position?: { x: number; y: number; width: number; height: number; rotation?: number }) {
     if (!showMarker(this.setting)) {
       module.logger.debug('Not showing marker - configured as hidden for this user', this.type, this.setting.get());
       this.hide();

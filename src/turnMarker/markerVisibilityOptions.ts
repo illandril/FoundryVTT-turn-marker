@@ -3,9 +3,13 @@ import module from '../module';
 export type VisibilityOption = 'ALL' | 'GMS' | 'PLAYERS' | 'NONE';
 
 export const VISIBILITY_OPTIONS: Record<VisibilityOption, string> = {
+  // biome-ignore lint/style/useNamingConvention: Legacy
   ALL: `${module.id}.setting.visibility.choice.ALL`,
+  // biome-ignore lint/style/useNamingConvention: Legacy
   GMS: `${module.id}.setting.visibility.choice.GMS`,
+  // biome-ignore lint/style/useNamingConvention: Legacy
   PLAYERS: `${module.id}.setting.visibility.choice.PLAYERS`,
+  // biome-ignore lint/style/useNamingConvention: Legacy
   NONE: `${module.id}.setting.visibility.choice.NONE`,
 };
 

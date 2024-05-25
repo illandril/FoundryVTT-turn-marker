@@ -20,9 +20,7 @@ Hooks.on('preUpdateToken', (token, changes) => {
   module.logger.debug('preUpdateToken with off-turn movement', changes);
 
   const isGM = !!game.user?.isGM;
-  const blockMovement = isGM
-    ? BlockGMOffTurnMovement.get() && !isAllowMovement()
-    : BlockPlayerOffTurnMovement.get();
+  const blockMovement = isGM ? BlockGMOffTurnMovement.get() && !isAllowMovement() : BlockPlayerOffTurnMovement.get();
 
   if (blockMovement) {
     module.logger.debug('Blocking movement');

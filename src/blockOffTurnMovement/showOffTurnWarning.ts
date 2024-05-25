@@ -11,10 +11,12 @@ const showOffTurnWarning = (token: TokenDocument) => {
     lastWarnedToken = token;
     lastWarnedTime = Date.now();
     const movementHotkey = game.user?.isGM ? getMovementHotkeyName() : null;
-    ui.notifications.warn(module.localize(`notification.offTurnMovementBlocked.${movementHotkey ? 'GM' : 'player'}`, {
-      token: token.name,
-      ...movementHotkey ? { hotkey: movementHotkey } : {},
-    }));
+    ui.notifications.warn(
+      module.localize(`notification.offTurnMovementBlocked.${movementHotkey ? 'GM' : 'player'}`, {
+        token: token.name,
+        ...(movementHotkey ? { hotkey: movementHotkey } : {}),
+      }),
+    );
   }
 };
 

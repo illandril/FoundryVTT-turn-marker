@@ -131,7 +131,10 @@ describe.each([true, false])('isGM=%j', (isGM) => {
       expect(notificationWarnSpy).toHaveBeenCalledTimes(1);
     });
 
-    it.each([['width', 10], ['name', 'Bob']])('should not block off turn non-movement updates (%s=%j)', (field, value) => {
+    it.each([
+      ['width', 10],
+      ['name', 'Bob'],
+    ])('should not block off turn non-movement updates (%s=%j)', (field, value) => {
       const token = getTokenWithCombatant('token', 'Token Name');
       const otherToken = getTokenWithCombatant('otherToken', 'Bob Otherson');
 
@@ -325,7 +328,9 @@ describe('isGM=true', () => {
 
       expect(result).toBe(false);
       expect(notificationWarnSpy).toHaveBeenCalledTimes(1);
-      expect(notificationWarnSpy).toHaveBeenCalledWith('mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.GM][{"token":"Bob Otherson","hotkey":"mock-keycode-display-string"}]');
+      expect(notificationWarnSpy).toHaveBeenCalledWith(
+        'mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.GM][{"token":"Bob Otherson","hotkey":"mock-keycode-display-string"}]',
+      );
     });
 
     describe('with missing keybinding', () => {
@@ -350,10 +355,11 @@ describe('isGM=true', () => {
 
         expect(result).toBe(false);
         expect(notificationWarnSpy).toHaveBeenCalledTimes(1);
-        expect(notificationWarnSpy).toHaveBeenCalledWith('mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.player][{"token":"Bob Otherson"}]');
+        expect(notificationWarnSpy).toHaveBeenCalledWith(
+          'mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.player][{"token":"Bob Otherson"}]',
+        );
       });
     });
-
 
     it('should not block off turn movement when key is pressed', () => {
       const token = getTokenWithCombatant('token', 'Token Name');
@@ -422,7 +428,9 @@ describe('isGM=false', () => {
 
       expect(result).toBe(false);
       expect(notificationWarnSpy).toHaveBeenCalledTimes(1);
-      expect(notificationWarnSpy).toHaveBeenCalledWith('mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.player][{"token":"Bob Otherson"}]');
+      expect(notificationWarnSpy).toHaveBeenCalledWith(
+        'mock-format[illandril-turn-marker.notification.offTurnMovementBlocked.player][{"token":"Bob Otherson"}]',
+      );
     });
 
     it('should block off turn movement even when key is pressed', () => {

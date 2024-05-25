@@ -4,7 +4,7 @@ import getCombatantPosition from './getCombatantPosition';
 import getTokenPosition from './getTokenPosition';
 import isTokenVisible from './isTokenVisible';
 import Marker from './marker';
-import { VisibilityOption, VISIBILITY_OPTIONS, showMarker } from './markerVisibilityOptions';
+import { VISIBILITY_OPTIONS, type VisibilityOption, showMarker } from './markerVisibilityOptions';
 import { getStartPosition, setStartPosition } from './startPosition';
 
 const clearMarkers = () => {
@@ -47,7 +47,10 @@ const _refreshMarkers = () => {
 const refreshMarkers = foundry.utils.debounce(_refreshMarkers, 10);
 
 export const EnableCurrentTurnMarker = module.settings.register<VisibilityOption>(
-  'enableCurrentTurnMarker', String, 'ALL', {
+  'enableCurrentTurnMarker',
+  String,
+  'ALL',
+  {
     hasHint: true,
     choices: VISIBILITY_OPTIONS,
     onChange: refreshMarkers,
@@ -55,7 +58,10 @@ export const EnableCurrentTurnMarker = module.settings.register<VisibilityOption
 );
 
 export const EnableTurnStartMarker = module.settings.register<VisibilityOption>(
-  'enableTurnStartMarker', String, 'ALL', {
+  'enableTurnStartMarker',
+  String,
+  'ALL',
+  {
     hasHint: true,
     choices: VISIBILITY_OPTIONS,
     onChange: refreshMarkers,
@@ -63,7 +69,10 @@ export const EnableTurnStartMarker = module.settings.register<VisibilityOption>(
 );
 
 export const EnableMovementMarkers = module.settings.register<VisibilityOption>(
-  'enableMovementMarkers', String, 'ALL', {
+  'enableMovementMarkers',
+  String,
+  'ALL',
+  {
     hasHint: true,
     choices: VISIBILITY_OPTIONS,
     onChange: () => {
@@ -109,13 +118,13 @@ Hooks.on('renderHeadsUpDisplay', () => {
 
 Hooks.on('ready', () => {
   if (game.user?.isGM) {
-    game.combats.forEach((combat) => {
+    for (const combat of game.combats) {
       const startPosition = getStartPosition(combat);
       if (combat.started && !startPosition) {
         module.logger.debug('initializing start position', combat);
         setStartPosition(combat);
       }
-    });
+    }
   }
   refreshMarkers();
 });
@@ -147,4 +156,3 @@ registerListener((combat) => {
     setStartPosition(combat);
   }
 });
-
