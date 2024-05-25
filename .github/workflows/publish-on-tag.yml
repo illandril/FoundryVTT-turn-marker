@@ -13,7 +13,7 @@ on:
       - "v*.*.*"
 
 jobs:
-  auto-assign:
+  publish-on-tag:
     uses: illandril/FoundryVTT-package-release-action/.github/workflows/illandril-publish.yml@main
-    secrets: 
+    secrets:
       PACKAGE_RELEASE_TOKEN: ${{ secrets.PACKAGE_RELEASE_TOKEN }}

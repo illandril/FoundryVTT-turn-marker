@@ -14,5 +14,5 @@ on:
     branches: [ "main" ]
 
 jobs:
-  auto-assign:
+  validate:
     uses: illandril/FoundryVTT-package-release-action/.github/workflows/illandril-validate.yml@main

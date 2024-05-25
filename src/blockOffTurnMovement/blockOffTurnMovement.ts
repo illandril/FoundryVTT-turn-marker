@@ -31,7 +31,6 @@ Hooks.on('preUpdateToken', (token, changes) => {
     module.logger.debug('Remaining changes', changes);
     if (Object.keys(changes).length === 1) {
       // If there are no other changes - prevent the change
-      // eslint-disable-next-line consistent-return
       return false;
     }
   }

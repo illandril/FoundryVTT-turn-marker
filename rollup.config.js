@@ -1,5 +1,4 @@
-/* eslint-disable import/no-named-as-default-member */
-import * as Manifest from '@illandril/foundryvtt-utils/dist/Manifest.js';
+import * as Manifest from '@illandril/foundryvtt-utils/manifest';
 import { babel } from '@rollup/plugin-babel';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import fs from 'fs-extra';
